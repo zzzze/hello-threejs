@@ -3,7 +3,7 @@ var path = require('path')
 var webpack = require('webpack')
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
+  // devtool: 'cheap-module-eval-source-map',
   context: path.resolve(__dirname, 'src'),
   entry: {
     main: './index.js',
@@ -36,8 +36,17 @@ module.exports = {
         use: [{
           loader: 'file-loader'
         }]
+      }, {
+        test: /three\/examples\/js/,
+        use: 'imports-loader?THREE=three'
       }
     ]
+  },
+
+  resolve: {
+    alias: {
+      'three-examples': path.join(__dirname, './node_modules/three/examples/js')
+    }
   },
 
   plugins: [
@@ -46,7 +55,7 @@ module.exports = {
       hash: true
     }),
 
-    new webpack.optimize.CommonsChunkPlugin({name: 'vendors', filename: '[name]-[hash].min.js'})
+    new webpack.optimize.CommonsChunkPlugin({name: 'vendors'})
   ],
 
   devServer: {

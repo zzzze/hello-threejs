@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import crateTexture from '../res/textures/crate.gif'
+import crateTexture from '../../res/textures/crate.gif'
 
 // const geometry = new THREE.BoxGeometry(200, 200, 200)
 // for (let i = 0; i < geometry.faces.length; i += 2) {

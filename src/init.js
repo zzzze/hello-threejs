@@ -1,7 +1,8 @@
 import * as THREE from 'three'
 
-export const width = document.getElementById('canvas-frame').clientWidth
-export const height = document.getElementById('canvas-frame').clientHeight
+export const container = document.getElementById('canvas-frame')
+export const width = container.clientWidth
+export const height = container.clientHeight
 export const scene = new THREE.Scene()
 
 function initThree () {
@@ -11,7 +12,7 @@ function initThree () {
   renderer.setSize(width, height)
   renderer.setClearColor(0xFFFFFF, 1.0)
   renderer.setPixelRatio(window.devicePixelRatio)
-  document.getElementById('canvas-frame').appendChild(renderer.domElement)
+  container.appendChild(renderer.domElement)
   return renderer
 }
 
